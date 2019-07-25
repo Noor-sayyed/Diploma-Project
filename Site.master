@@ -1,0 +1,93 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    
+        <asp:ScriptManager runat="server">
+        </asp:ScriptManager>
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <center><h1>
+                
+             <marquee scrollamount="10">LEAVE MANAGEMENT SYSTEM.</marquee>
+                    
+                </h1></center>
+            </div>
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="#" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                         <asp:MenuItem Text="Master" Value="Master">
+                             <asp:MenuItem NavigateUrl="~/SoftwareAdmin/Master/Country.aspx" 
+                                 Text="Country" Value="Country"></asp:MenuItem>
+                             <asp:MenuItem NavigateUrl="~/SoftwareAdmin/Master/State.aspx" 
+                                 Text="State" Value="State"></asp:MenuItem>
+                             <asp:MenuItem NavigateUrl="~/SoftwareAdmin/Master/district.aspx" 
+                                 Text="District" Value="District"></asp:MenuItem>
+                             <asp:MenuItem Text="Taluka" Value="Taluka" 
+                                 NavigateUrl="~/SoftwareAdmin/Master/Taluka.aspx"></asp:MenuItem>
+                             <asp:MenuItem NavigateUrl="~/SoftwareAdmin/Master/emptype.aspx" 
+                                 Text="EmployeeType" Value="EmployeeType"></asp:MenuItem>
+                             <asp:MenuItem Text="LeaveType" Value="LeaveType" 
+                                 NavigateUrl="~/SoftwareAdmin/Master/leavetype.aspx"></asp:MenuItem>
+                             <asp:MenuItem Text="Department" Value="Department" 
+                                 NavigateUrl="~/SoftwareAdmin/Master/department.aspx"></asp:MenuItem>
+                             <asp:MenuItem NavigateUrl="~/SoftwareAdmin/Master/Designation.aspx" 
+                                 Text="Designation" Value="Designation"></asp:MenuItem>
+                             <asp:MenuItem NavigateUrl="~/SoftwareAdmin/Master/Branch.aspx" Text="Branch" 
+                                 Value="Branch"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Transaction" Value="Transaction">
+                            <asp:MenuItem Text="Summary" Value="Summary"></asp:MenuItem>
+                            <asp:MenuItem Text="LeaveApplication" Value="LeaveApplication" 
+                                NavigateUrl="~/SoftwareAdmin/Transaction/ApplicationForm.aspx"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/SoftwareAdmin/Transaction/Attendance.aspx" 
+                                Text="Attendance" Value="Attendance"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Report" Value="Report"></asp:MenuItem>
+                        </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <p>
+                </p>
+                <p>
+                    <br />
+                </p>
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear">
+            <br />
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>
